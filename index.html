@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aiza L. Verzon – Portfolio</title>
+  <meta name="description" content="Professional portfolio of Aiza Verzon: projects, experience, skills, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #111218;
+      --text: #e8eaf1;
+      --muted: #a7acc0;
+      --brand: #6ee7b7; /* mint */
+      --brand-2: #7dd3fc; /* sky */
+      --ring: #94a3b8;
+      --card: #0f1117;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius: 12px;
+      --maxw: 1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f7fb;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #525b76;
+        --card: #ffffff;
+        --shadow: 0 10px 25px rgba(2,6,23,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 110% -20%, rgba(125,211,252,.15), transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, rgba(110,231,183,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text); line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--maxw); margin-inline:auto; padding: 24px;}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+      background: linear-gradient(to bottom, rgba(10,11,15,.85), rgba(10,11,15,.6));
+      border-bottom:1px solid rgba(148,163,184,.15);
+    }
+    @media (prefers-color-scheme: light){
+      header{background:rgba(255,255,255,.8)}
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
+    .nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.25); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{padding:72px 0 36px}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.25); color:var(--muted); font-size:13px}
+    h1{font-size:clamp(28px, 4vw, 48px); line-height:1.15; margin:14px 0 8px}
+    .subtitle{font-size:clamp(16px, 1.4vw, 20px); color:var(--muted)}
+    .cta{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .hero-card{background:var(--card); border:1px solid rgba(148,163,184,.15); padding:22px; border-radius:var(--radius-xl); box-shadow:var(--shadow)}
+    .avatar{width:120px; height:120px; border-radius:22px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .hero-card .rows{display:grid; gap:12px; margin-top:14px}
+
+    /* Section */
+    section{padding:48px 0}
+    .section-title{font-size:22px; font-weight:700; margin:0 0 18px 0}
+    .muted{color:var(--muted)}
+
+    /* Projects */
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid rgba(148,163,184,.15); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .card .thumb{aspect-ratio: 16/9; background:linear-gradient(135deg, rgba(125,211,252,.15), rgba(110,231,183,.15)); display:flex; align-items:center; justify-content:center}
+    .card h3{margin:16px; font-size:18px}
+    .card p{margin:0 16px 16px; color:var(--muted)}
+    .pill-row{display:flex; gap:8px; padding:0 16px 16px; flex-wrap:wrap}
+    .pill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.2); color:var(--muted)}
+    .card .meta{margin-top:auto; padding:12px 16px; border-top:1px solid rgba(148,163,184,.12); display:flex; align-items:center; justify-content:space-between}
+    .card .meta a{font-size:14px; opacity:.9}
+    .card:hover{transform:translateY(-2px)}
+
+    /* Experience */
+    .timeline{position:relative; display:grid; gap:14px}
+    .timeline::before{content:""; position:absolute; left:14px; top:0; bottom:0; width:2px; background:linear-gradient(var(--brand), transparent)}
+    .item{position:relative; padding-left:42px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)); border:1px solid rgba(148,163,184,.12); border-radius:14px; padding:16px}
+    .item::before{content:""; position:absolute; left:8px; top:20px; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 0 3px rgba(125,211,252,.25)}
+    .role{font-weight:600}
+    .org{color:var(--muted)}
+
+    /* Skills */
+    .skills{display:flex; gap:12px; flex-wrap:wrap}
+    .chip{padding:10px 12px; border-radius:12px; border:1px dashed rgba(148,163,184,.35); background:linear-gradient(180deg, rgba(255,255,255,.03), transparent); font-size:13px}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.25); background:transparent; color:var(--text)
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, textarea:focus{outline:2px solid var(--ring); border-color:transparent}
+    .btn-primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b0c10; font-weight:700; border:none}
+
+    /* Footer */
+    footer{padding:32px 0; border-top:1px solid rgba(148,163,184,.15); color:var(--muted)}
+
+    /* Utilities */
+    .row{display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+    .between{justify-content:space-between}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+
+    /* Print clean resume view */
+    @media print{
+      header, .cta, .nav-links, .thumb, .btn, form, footer{display:none !important}
+      body{background:white; color:black}
+      .card, .item{break-inside:avoid; border:1px solid #ccc}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <a href="#top" aria-label="Home">Aiza L. Verzon</a>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#resume">Download Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">Open to opportunities</span>
+          <h1>Hi, I’m <span style="background:linear-gradient(135deg, var(--brand), var(--brand-2)); 
+            -webkit-background-clip:text; background-clip:text; color:transparent">Aiza L. Verzon</span> — a <strong>3rd Year IT Student</strong> 
+            crafting human‑centered solutions.</h1>
+          <p class="subtitle">A passionate Graphic Design student who loves blending creativity and technology to craft visual stories that inspire and connect.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View my work</a>
+            <a class="btn" href="#contact">Let’s collaborate</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="row">
+            <img class="avatar" src="image/Aiza.png" alt="Your headshot"/>
+            <div>
+              <div class="row" style="gap:8px; flex-wrap:wrap">
+                <a class="pill" href="https://www.linkedin.com/in/aiza-verzon/" aria-label="LinkedIn">LinkedIn</a>
+                <a class="pill" href="https://github.com/AizaVerzon" aria-label="GitHub">GitHub</a>
+              </div>
+              <div class="rows">
+                <div class="muted">Based in Basco, Batanes</div>
+                <div>Specialties: Graphic Design </div>
+                <div class="muted">Email: verzonaiza01@email.com <br> Number: +63 9125257612</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="muted">No project yet.</p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="row between">
+              <div><span class="role">Editor</span> · <span class="org">I am J Graphic Design and Printing</span></div>
+              <div class="muted">2019 – Present · City</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="row between">
+              <div><span class="role">Job Order</span> · <span class="org">Commision on Audit</span></div>
+              <div class="muted">2023 – 2024</div>
+            </div>
+            <ul>
+              <li>Encoded Audits from different local units.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript / React</span>
+          <span class="chip">PHP</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Graphic Designing</span>
+
+          <span class="chip">Public Speaking</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résumé (download) -->
+    <section id="resume">
+      <div class="container">
+        <h2 class="section-title">Résumé</h2>
+        <p class="muted">Link a PDF version for recruiters. Replace the href with your file.</p>
+        <a class="btn btn-primary" href="resume.pdf" download>Download PDF</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="muted">Have a project, role, or collaboration in mind? Send a message:</p>
+        <form onsubmit="event.preventDefault(); alert('Thanks! Your message would be sent via your backend/email service.');">
+          <div class="row">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+          </div>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" placeholder="Your message" required></textarea>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container row between">
+      <div>© <span id="year"></span> Aiza L. Verzon. All rights reserved.</div>
+      <div class="row" style="gap:10px">
+        <a href="https://www.linkedin.com/in/aiza-verzon/">LinkedIn</a>
+        <a href="https://github.com/AizaVerzon">GitHub</a>
+        <a href="verzonaiza01@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
